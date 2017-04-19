@@ -1,9 +1,11 @@
+"use strict"   
 const operators = ['|+', '|-', '|*', '|/', '|%', '<', '>', '!', '|&', '|#', '[', ']', '(', ')'];
 const keywords = ['var', 'fi', 'elif', 'loop', 'digit', 'number', 'rational', 'acquire', 'display'];
 const symbols = [' ', '=', ':', ',', ';'];
 const alphabets = 'abcdefghijklmnopqrstuvwxyz'
 var fs = require('fs');
-console.log("{ \"input\":\""+fs.readFileSync('./code.20pp','utf8')+"\"}");
+var input =fs.readFileSync('./code.20pp','utf8');
+//console.log("{ \"input\":\""+fs.readFileSync('./code.20pp','utf8')+"\"}");
 //var obj = JSON.parse(("{ \"input\":\""+ fs.readFileSync('./code.20pp', 'utf8')+"\"}").slice(0, -4));
 let output = { identifiers: [], operators: [], keywords: [] };
 function isOperator(string) {
@@ -64,3 +66,5 @@ function dispalyOutput(){
     console.log(output.operators);
     output ={identifiers: [], operators: [], keywords: [] };
 }
+analyse(input);
+dispalyOutput();
