@@ -1,8 +1,8 @@
-const operators = ['|+', '|-', '|*', '|/', '|%', '<>', '!', '|&', '|#', '[', ']', '(', ')'];
-const keywords = ['var', 'fi', 'elif', 'loop', 'digit', 'rational', 'acquire', 'display'];
+const operators = ['|+', '|-', '|*', '|/', '|%', '<', '>', '!', '|&', '|#', '[', ']', '(', ')'];
+const keywords = ['var', 'fi', 'elif', 'loop', 'digit', 'number', 'rational', 'acquire', 'display'];
 const symbols = [' ', '=', ':', ',', ';'];
 const alphabets = 'abcdefghijklmnopqrstuvwxyz'
-const output = { operators: [], keywords: [] };
+const output = { identifiers: [], operators: [], keywords: [] };
 function isOperator(string) {
   return operators.indexOf(string) > -1;
 }
@@ -21,6 +21,8 @@ function addToOutput(string) {
     output.operators.push(string);
   } else if(isKeyword(string)) {
     output.keywords.push(string);
+  } else {
+    output.identifiers.push(string);
   }
 }
 
