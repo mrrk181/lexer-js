@@ -1,4 +1,4 @@
-"use strict"   
+"use strict"
 const operators = ['|+', '|-', '|*', '|/', '|%', '<', '>', '!', '|&', '|#', '[', ']', '(', ')'];
 const keywords = ['var', 'fi', 'elif', 'loop', 'digit', 'number', 'rational', 'acquire', 'display'];
 const symbols = [' ', '=', ':', ',', ';'];
@@ -27,7 +27,8 @@ function addToOutput(string) {
   } else if(isKeyword(string)) {
     output.keywords.push(string);
   } else {
-    output.identifiers.push(string);
+      if(string!="\n")
+        output.identifiers.push(string);
   }
 }
 
