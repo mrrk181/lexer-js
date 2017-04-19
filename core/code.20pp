@@ -1,0 +1,12 @@
+. [
+. var my_int: digit;
+. var my_float: rational;
+. loop I:10,1;
+ . my_int = acquire(digit);
+ . my_float = acquire(rational);
+ . fi ( my_int < my_float)
+ . display(number, my_int);
+ . elif (my_int > my_float)
+ . display(rational, my_float);
+
+. ]

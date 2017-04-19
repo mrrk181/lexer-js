@@ -2,7 +2,10 @@ const operators = ['|+', '|-', '|*', '|/', '|%', '<', '>', '!', '|&', '|#', '[',
 const keywords = ['var', 'fi', 'elif', 'loop', 'digit', 'number', 'rational', 'acquire', 'display'];
 const symbols = [' ', '=', ':', ',', ';'];
 const alphabets = 'abcdefghijklmnopqrstuvwxyz'
-const output = { identifiers: [], operators: [], keywords: [] };
+var fs = require('fs');
+console.log("{ \"input\":\""+fs.readFileSync('./code.20pp','utf8')+"\"}");
+//var obj = JSON.parse(("{ \"input\":\""+ fs.readFileSync('./code.20pp', 'utf8')+"\"}").slice(0, -4));
+let output = { identifiers: [], operators: [], keywords: [] };
 function isOperator(string) {
   return operators.indexOf(string) > -1;
 }
@@ -51,4 +54,13 @@ function analyse(string) {
       lastIdentified += currentChar;
     }
   }
+}
+function dispalyOutput(){
+    console.log("Identifiers");
+    console.log(output.identifiers);
+    console.log("Keywords");
+    console.log(output.keywords);
+    console.log("operators");
+    console.log(output.operators);
+    output ={identifiers: [], operators: [], keywords: [] };
 }
