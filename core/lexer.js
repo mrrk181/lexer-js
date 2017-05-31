@@ -62,21 +62,9 @@ function analyse(string) {
       lastIdentified += currentChar;
     }
   }
-}
-function dispalyOutput(){
-  var Table = require('cli-table');
-  var table = new Table({
-    head: ['Identifiers', 'Operators', 'Keywords', 'Constants'],
-    colWidth: [300, 300,300,300]
-  });
-  const len = Math.max(...[output.identifiers.length, output.keywords.length, output.operators.length, output.constants.length]);
-  for (let i = 0; i < len; i++) {
-    table.push([output.identifiers[i] ? output.identifiers[i]: '', output.operators[i] ? output.operators[i] : '',
-      output.keywords[i] ? output.keywords[i] : '', output.constants[i] ? output.constants[i] : ''
-    ]);
-  }
-  console.log(table.toString());
-  output ={identifiers: [], constants: [], operators: [], keywords: [] };
+  console.log("Identifiers");console.log(output.identifiers);
+  console.log("Keywords"); console.log(output.keywords);
+  console.log("operators"); console.log(output.operators);
+  console.log("Constants"); console.log(output.constants);
 }
 analyse(input);
-dispalyOutput();
